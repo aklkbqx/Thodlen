@@ -1,0 +1,40 @@
+services:
+
+  php-apache8.0:
+    container_name: php-thodlen
+    build:
+      context: ./php
+      dockerfile: dockerfile
+    restart: always
+    ports:
+      - 3000:80
+    volumes:
+      - ./php/src:/var/www/html/
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: mysql-thodlen
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ROOT_PASSWORD
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: thodlen_db
+      TZ: 'Asia/Bangkok'
+    ports:
+      - 9906:3306
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin-thodlen
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8888:80
+    environment:
+      PMA_HOST: mysql
+    depends_on:
+      - mysql

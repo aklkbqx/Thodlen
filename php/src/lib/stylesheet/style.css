@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    transition: 0.3s !important;
+}
+
+:root {
+    --cyan-color1: #5FB4F8;
+    --cyan-color2: #4d9ad9;
+    --cyan-color3: #84c8ff;
+}
+
+body {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #F3F3F3;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-lightgray {
+    background-color: #F3F3F3;
+}
+
+.text-cyan {
+    color: var(--bs-cyan);
+}
+
+.bg-cyan {
+    background-color: var(--cyan-color1);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.list-menu-navigation {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    gap: 3rem;
+    margin-top: 1rem;
+    font-weight: 300;
+
+    & li {
+        list-style: none;
+        font-size: 20px;
+        cursor: pointer;
+        position: relative;
+        color: rgb(101, 101, 101);
+        transition: 0.3s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bs-cyan);
+            width: 0%;
+            height: 5px;
+            border-radius: 0.5rem;
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            width: 100%;
+        }
+
+        &:hover {
+            color: black;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.dropdown-item {
+    border-radius: 0.5rem;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus {
+    background-color: var(--bs-cyan);
+}
+
+.btn-cyan {
+    background-color: var(--cyan-color1);
+    color: white;
+    transition: 0.4s ease;
+
+    &:hover {
+        color: white;
+        background-color: var(--cyan-color2);
+    }
+}
+
+.btn-outline-cyan.active {
+    color: white;
+    background-color: var(--cyan-color1);
+}
+
+.btn-outline-cyan.active:hover {
+    background-color: var(--cyan-color1);
+    color: white;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-outline-cyan {
+    color: var(--cyan-color1);
+    border: 1px solid var(--cyan-color1);
+}
+
+.btn-outline-cyan:hover {
+    color: var(--cyan-color1);
+    border: 1px solid var(--cyan-color1);
+    opacity: 0.8;
+    transform: translateY(-10px);
+}
+
+.btn-lightV2 {
+    background-color: rgb(218, 218, 218);
+    color: black;
+    transition: 0.4s ease;
+
+    &:hover {
+        color: black;
+        background-color: rgb(194, 194, 194);
+    }
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: var(--cyan-color1);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem var(--cyan-color3);
+}
+
+.min-width-container {
+    min-width: 1280px;
+}
+
+.nav-search,
+.nav-logo,
+.nav-menu {
+    flex: 1;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.carousel-indicators [data-bs-target] {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--bs-cyan));
+}
+
+.nav-link-menu-bar {
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0;
+    white-space: nowrap;
+
+    & li {
+        padding: 1.5rem;
+        border: 1px solid rgb(201, 201, 201);
+        margin-bottom: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        background-color: white;
+        transition: 0.3s ease;
+        white-space: nowrap;
+
+        &:hover {
+            background-color: var(--bs-cyan);
+            color: white;
+        }
+    }
+}
+
+.fit-cover {
+    object-fit: cover;
+}
+
+.card-order {
+    width: 100%;
+    height: 360px;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px 0px rgb(235, 235, 235);
+
+    &:hover {
+        box-shadow: 0px 0px 5px 1px var(--cyan-color1);
+    }
+}
+
+
+.active-cyan * {
+    background-color: var(--cyan-color1);
+    color: white;
+}
+
+.image-banner {
+    height: 400px;
+}
+
+.title-banner {
+    position: absolute;
+    color: white;
+    top: 80px;
+    left: 250px;
+}
+
+@media only screen and (max-width: 768px) {
+    .title-banner {
+        position: absolute;
+        color: white;
+        top: 50px;
+        left: 200px;
+
+        & div {
+            font-size: 30px !important;
+        }
+    }
+
+    .image-banner {
+        height: 300px;
+    }
+}
