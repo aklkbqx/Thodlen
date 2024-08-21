@@ -1,4 +1,9 @@
 <?php
+$servername = "mysql-thodlen";
+$username = "username";
+$password = "password";
+$database = "thodlen_db";
+
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config_function/config_db.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/config_function/function.php";
 
@@ -23,3 +28,10 @@ $logo_image = "logo.png";
 $email_var = "example@email.com";
 $address_var = "193 ถนน มาตุลี ตำบลปากน้ำโพ อำเภอเมืองนครสวรรค์ นครสวรรค์ 60000";
 $copyright_text_var = "© 2024 - All Rights Reserved";
+
+$imageBanner = [
+    pathImage("banner1.png", "banner"),
+    pathImage("banner2.png", "banner"),
+    pathImage("banner3.png", "banner")
+];
+$interval_slide_banner = "2000";

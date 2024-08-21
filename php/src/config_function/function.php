@@ -78,7 +78,9 @@ function showMessageAlert(string $type_msg)
 <?php }
 }
 $messageAlerts = [
-    "success", "danger", "warning"
+    "success",
+    "danger",
+    "warning"
 ];
 foreach ($messageAlerts as $messageType) {
     if (isset($_SESSION[$messageType])) {

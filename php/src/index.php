@@ -5,12 +5,6 @@ $user_id = isset($_SESSION["user_login"]) ? $_SESSION["user_login"] : (isset($_S
 if ($user_id) {
     $row = sql("SELECT * FROM `users` WHERE `user_id` = ?", [$user_id])->fetch(PDO::FETCH_ASSOC);
 }
-$imageBanner = [
-    pathImage("banner1.jpg", "banner"),
-    pathImage("banner2.webp", "banner"),
-    pathImage("banner3.jpg", "banner")
-];
-$interval_slide_banner = "2000";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +59,12 @@ $interval_slide_banner = "2000";
 
     <div class="container min-width-container" style="min-height: 400px;">
 
+     <div class="d-flex w-100 justify-content-start my-4">
+            <div class="bg-cyan rounded-3 p-2">
+                <h3 class="text-white"><i class="fa-solid fa-cart-shopping"></i> สินค้าทั้งหมดภายในร้านของเรา</h3>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-center flex-column align-items-center d-none" id="productSearchNotFound">
             <div class="d-flex align-items-center justify-content-center h-100 w-100 p-5 pb-0" style="gap: 10px;">
                 <h3 class="text-muted">ไม่พบสินค้าที่คุณต้องการค้นหา</h3>
@@ -83,11 +83,6 @@ $interval_slide_banner = "2000";
             <img src="./assets/images/web/searchNotFoundIcon.png">
         </div>
 
-        <div class="d-flex w-100 justify-content-start my-4">
-            <div class="bg-cyan rounded-3 p-2">
-                <h3 class="text-white"><i class="fa-solid fa-cart-shopping"></i> สินค้าทั้งหมดภายในร้านของเรา</h3>
-            </div>
-        </div>
 
         <div class="row">
             <?php $product_data = sql("SELECT `product_id`,`name`,`detail`,`price`,`product_image` FROM `products`");
@@ -231,6 +226,14 @@ $interval_slide_banner = "2000";
             let newHref = href.replace(/amount=\d+/, `amount=${amount}`);
             input.closest(".modal-content").find(".addToCart").attr("href", newHref);
         }
+
+        const searchInputNavbar = $("#searchInputNavbar");
+        searchInputNavbar.on("keypress", (e) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                searchProduct(searchInputNavbar.val())
+            }
+        })
     </script>
 
     <?php require_once __DIR__ . "/components/footer.php"; ?>

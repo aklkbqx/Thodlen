@@ -72,7 +72,7 @@
 </div>
 
 
-<div class="mt-4">
+<div class="mt-4 p-2 overflow-y-auto overflow-x-hidden" style="height: calc(100% - 80px);">
     <h4 class="text-end"><i class="fa-solid fa-user"></i> จำนวนสมาชิกทั้งหมด <?= sql("SELECT COUNT(*) AS `countUser` FROM `users` WHERE `role` = 'user'")->fetch()["countUser"] ?> คน</h4>
 
     <?php $fetchAllUser = sql("SELECT * FROM `users` WHERE `role` = 'user'");
